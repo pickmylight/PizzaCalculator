@@ -11,11 +11,11 @@
       "installMode": "prefetch",
       "resources": {
         "files": [
-          "/favicon.ico",
-          "/index.html",
-          "/manifest.webmanifest",
-          "/*.css",
-          "/*.js"
+          "/PizzaCalculator/favicon.ico",
+          "/PizzaCalculator/index.html",
+          "/PizzaCalculator/manifest.webmanifest",
+          "/PizzaCalculator/*.css",
+          "/PizzaCalculator/*.js"
         ]
       }
     },
@@ -25,8 +25,8 @@
       "updateMode": "prefetch",
       "resources": {
         "files": [
-          "/assets/**",
-          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+          "/PizzaCalculator/assets/**",
+          "/PizzaCalculator/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
         ]
       }
     }
