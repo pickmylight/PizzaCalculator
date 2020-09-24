@@ -13,6 +13,7 @@ import { PizzacalculatorService } from './services/pizzacalculator.service';
 import { FormsModule } from '@angular/forms';
 import { RecipesComponent } from './recipes/recipes.component';
 import { RouterModule } from '@angular/router';
+import { TeiglingComponent } from './teigling/teigling.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RouterModule } from '@angular/router';
     NavbarComponent,
     ContentwrapperComponent,
     PizzaComponent,
-    RecipesComponent
+    RecipesComponent,
+    TeiglingComponent
   ],
   imports: [
     BrowserModule,

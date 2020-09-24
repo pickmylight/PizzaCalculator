@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContentwrapperComponent } from './contentwrapper/contentwrapper.component';
 import { PizzaComponent } from './pizza/pizza.component';
 import { RecipesComponent } from './recipes/recipes.component';
+import { TeiglingComponent } from './teigling/teigling.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,9 @@ const routes: Routes = [
         },
         {
           path: 'recipes', component: RecipesComponent
+        },
+        {
+          path: 'dough', component: TeiglingComponent
         }
       ]
   },
