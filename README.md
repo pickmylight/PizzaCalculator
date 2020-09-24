@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
 
+## Ingredients
+
+Try this PWA to fulfill your pizza dreams. When making the dough, let it sit 24 hours in your fridge. When ready, portion the dough and let sit for at least 1 hour!
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
