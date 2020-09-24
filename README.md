@@ -1,6 +1,7 @@
 # PizzaApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
+A prototype can be seen here: [PizzaCalculator](https://pickmylight.github.io/PizzaCalculator/#/home/calculator).
 
 ## Ingredients
 
