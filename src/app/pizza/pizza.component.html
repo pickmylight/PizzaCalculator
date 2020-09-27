@@ -9,7 +9,7 @@
                     <div class="d-flex flex-wrap justify-content-start align-items-center mt-2">
                         <div class="w-auto">
                             <label for="pizzaNumber">Anzahl der Pizzen:</label>
-                            <input class="form-control" name="pizzaNumber" type="number"
+                            <input class="form-control" name="pizzaNumber" type="number" min="0"
                                 [(ngModel)]="pizzaInfo.pizzaNumber" (change)="updatePizzaInfos()">
                         </div>
                     </div>
