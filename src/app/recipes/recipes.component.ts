@@ -1,5 +1,10 @@
+import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireStorage } from '@angular/fire/storage';
+import { Observable } from 'rxjs';
 import { Recipe } from '../models/recipe';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-recipes',
@@ -8,85 +13,36 @@ import { Recipe } from '../models/recipe';
 })
 export class RecipesComponent implements OnInit {
   public recipe: string;
-  public chosenRecipe: Recipe;
-  public recipeContent: {
-    [key: string]: Recipe
-  };
+  public selectedRecipe: Recipe;
+  public recipes: Recipe[];
+  public imgSrc: string;
 
-  constructor() { }
+  constructor(
+    private readonly fireStorage: AngularFireStorage,
+    private readonly fireBaseService: FirebaseService
+  ) {
+    this.fireBaseService.currentStore.subscribe(recipes => this.recipes = recipes);
+  }
 
   public ngOnInit(): void {
-    this.recipeContent = {
-      Margharita: {
-        ingredients: [
-          'Tomatensauce', 'Mozzarella', 'Basilikum'
-        ],
-        conributor: 'Paul',
-        picture: 'none'
-      },
-      Salame: {
-        ingredients: [
-          'Tomatensauce', 'Mozzarella', 'Basilikum', 'Salame Neapolitana'
-        ],
-        conributor: 'Paul',
-        picture: 'none'
-      },
-      Prosciutto: {
-        ingredients: [
-          'Tomatensauce', 'Mozzarella', 'Basilikum', 'Prosciutto Cotto'
-        ],
-        conributor: 'Paul',
-        picture: 'none'
-      },
-      Funghi: {
-        ingredients: [
-          'Tomatensauce', 'Mozzarella', 'Basilikum', '1 Großer Champignon'
-        ],
-        conributor: 'Paul',
-        picture: 'none'
-      },
-      MargharitaSpecial: {
-        ingredients: [
-          'Tomatenmark', 'Mozzarella', 'Basilikum'
-        ],
-        conributor: 'Paul',
-        picture: 'none'
-      },
-      Paolo: {
-        ingredients: [
-          'Mozzarella', 'Basilikum', 'Südtiroler Räucherschinken', 'getrocknete Tomaten', 'Cherrytomaten'
-        ],
-        conributor: 'Paul',
-        picture: 'none'
-      },
-      Diavola: {
-        ingredients: [
-          'Tomatensauce', 'Mozzarella', 'Basilikum', 'Chorizo', 'Zwiebeln', 'Peperoni / Chili'
-        ],
-        conributor: 'Paul',
-        picture: 'none'
-      }
-    };
+    this.recipe = 'Rezept wählen';
   }
 
-  public onButtonGroupClick(event: any): void {
-    const clickedElement = event.target || event.srcElement;
-    if (clickedElement.nodeName === 'BUTTON') {
-      const isCertainButtonAlreadyActive = clickedElement.parentElement.querySelector('.active');
-      // if a Button already has Class: .active
-      if (isCertainButtonAlreadyActive) {
-        isCertainButtonAlreadyActive.classList.remove('active');
-      }
-      clickedElement.className += ' active';
-    }
-
-  }
-
-  public changeRecipe(event: any): void {
-    console.log(event);
-    this.recipe = event.target.name;
+  public async getPictureURL(recipe: Recipe): Promise<void> {
     try {
-      this.chosenRecipe = this.recipeContent[this.recipe];
+      const reference = this.fireStorage.ref(recipe.picture);
+      this.imgSrc = await reference.getDownloadURL().toPromise();
+    } catch (error) {
+      this.imgSrc = '';
+    }
+  }
+
+  public changeRecipe(recipe: string): void {
+    this.recipe = recipe;
+    try {
+      this.selectedRecipe = this.recipes[this.recipes.findIndex(item => item.title === recipe)];
+      console.log(this.selectedRecipe.picture);
+      this.getPictureURL(this.selectedRecipe);
     } catch (error) {
       console.log('This recipe is not available!');
     }

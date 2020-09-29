@@ -14,6 +14,10 @@ import { FormsModule } from '@angular/forms';
 import { RecipesComponent } from './recipes/recipes.component';
 import { RouterModule } from '@angular/router';
 import { TeiglingComponent } from './teigling/teigling.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
 
 @NgModule({
   declarations: [
@@ -30,7 +34,10 @@ import { TeiglingComponent } from './teigling/teigling.component';
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     NgbModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule.enablePersistence(),
+    AngularFireStorageModule
   ],
   providers: [PizzacalculatorService],
   bootstrap: [AppComponent]

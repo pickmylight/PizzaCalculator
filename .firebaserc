@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pizzaapp-f56f9": {
+      "hosting": {
+        "pizza-app": [
+          "pizzaapp-f56f9"
+        ]
+      }
+    }
+  }
+}
