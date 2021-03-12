@@ -41,16 +41,15 @@ export class ContentwrapperComponent implements OnInit {
         });
         if (!this.detectMobile()) {
             this.mobile.next('Diese Seite ist für Mobil optimiert. Sie kann auch als App installiert werden');
-        }
+        }/*
         if (!this.detectStandalone()){
             this.install.next('Diese Applikation lässt sich mittels "Teilen" als App hinzufügen.');
         }
+        */
     }
-
     private detectStandalone(): boolean {
         return ('standalone' in window.navigator);
     }
-
     private detectMobile(): boolean {
         return this.toMatchMobile.some((toMatchItem) => {
             return navigator.userAgent.match(toMatchItem);
