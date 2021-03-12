@@ -18,11 +18,15 @@ export class RecipesComponent implements OnInit {
     private readonly fireStorage: AngularFireStorage,
     private readonly fireBaseService: FirebaseService
   ) {
-    this.fireBaseService.currentStore.subscribe(recipes => this.recipes = recipes);
+    this.fireBaseService.currentStore.subscribe(recipes => {
+        this.recipes = recipes;
+        console.log(this.recipes);
+    });
   }
 
   public ngOnInit(): void {
     this.recipe = 'Rezept wählen';
+    console.log(this.recipes);
   }
 
   public async getPictureURL(recipe: Recipe): Promise<void> {

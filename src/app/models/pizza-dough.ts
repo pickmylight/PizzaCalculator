@@ -7,6 +7,7 @@ export interface Dough {
 }
 
 export enum DoughRecipe {
-    e_standard = 0,
-    e_sour = 1
+    e_standard = 'Standard',
+    e_special = 'Spezial',
+    e_sour = 'Sauerteig'
 }

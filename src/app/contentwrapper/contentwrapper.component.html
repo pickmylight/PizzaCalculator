@@ -1,4 +1,7 @@
 <app-navbar></app-navbar>
-<div class="container">
+<ngb-alert class="alert-fixed" #selfClosingAlert *ngIf="mobileMessage" type="dark" (closed)="mobileMessage = ''">{{ mobileMessage }}
+</ngb-alert>
+<ngb-alert class="alert-fixed" #installAlert *ngIf="installMessage" type="dark" (closed)="installMessage=''">{{ installMessage }}</ngb-alert>
+<div class="container p-1">
     <router-outlet></router-outlet>
 </div>

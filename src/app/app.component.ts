@@ -8,7 +8,6 @@ import { SwUpdate } from '@angular/service-worker';
 })
 export class AppComponent implements OnInit {
   public title = 'pizza-app';
-
   constructor( private readonly swUpdate: SwUpdate) {}
 
   ngOnInit(): void {

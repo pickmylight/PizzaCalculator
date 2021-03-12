@@ -4,6 +4,7 @@ import { ContentwrapperComponent } from './contentwrapper/contentwrapper.compone
 import { PizzaComponent } from './pizza/pizza.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { TeiglingComponent } from './teigling/teigling.component';
+import { WikiComponent } from './wiki/wiki.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,9 @@ const routes: Routes = [
         },
         {
           path: 'dough', component: TeiglingComponent
+        },
+        {
+            path: 'wiki', component: WikiComponent
         }
       ]
   },

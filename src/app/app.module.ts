@@ -17,6 +17,7 @@ import { TeiglingComponent } from './teigling/teigling.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { WikiComponent } from './wiki/wiki.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
     ContentwrapperComponent,
     PizzaComponent,
     RecipesComponent,
-    TeiglingComponent
+    TeiglingComponent,
+    WikiComponent
   ],
   imports: [
     BrowserModule,

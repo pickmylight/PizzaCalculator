@@ -1,54 +1,48 @@
 <div class="container">
-    <div class="card">
-        <div class="card-header">
-            Pizza Rezepte
-        </div>
-        <div class="card-body">
-            <div class="container">
-                <div class="card mb-2">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-center">
-                            <div ngbDropdown>
-                                <button ngbDropdownToggle class="btn btn-dark w-100" type="button"
-                                    id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    {{ recipe }}
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <div class="dropdown-item" *ngFor="let item of recipes"
-                                        (click)="changeRecipe(item.title)">{{ item.title }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-body">
-                        <div class="mt-3 d-flex p-3">
-                            <div *ngIf="recipe==='Rezept wählen'; else recipeBlock">
-                                <h4>Rezepte</h4>
-                                <p>Bitte wähle ein Rezept!</p>
-                            </div>
-                            <ng-template #recipeBlock>
-                                <div class="d-flex flex-wrap">
-                                    <div class="m-2" *ngIf="imgSrc!==''">
-                                        <img [src]="imgSrc" width="100%" height="100%">
-                                    </div>
-                                    <div>
-                                        <h5>Zutaten</h5>
-                                        <ul class="list-group list-group-flush">
-                                            <li *ngFor="let item of selectedRecipe.ingredients" class="list-group-item">
-                                                {{ item }}
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </ng-template>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="card">
+    <div class="card-header">
+      Pizza Rezepte
     </div>
+    <div class="card-body">
+      <div class="container">
+        <div class="d-flex justify-content-center mb-3">
+          <div ngbDropdown class="flex-fill">
+            <button ngbDropdownToggle class="btn btn-dark w-100" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ recipe }}
+            </button><div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="dropdownMenuButton">
+              <div class="dropdown-item" *ngFor="let item of recipes" (click)="changeRecipe(item.title)">
+                {{ item.title }}</div>
+                </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <div class="d-flex px-3">
+              <div *ngIf="recipe==='Rezept wählen'; else recipeBlock">
+                <h4>Rezepte</h4>
+                <p>Bitte wähle ein Rezept!</p>
+              </div>
+              <ng-template #recipeBlock>
+                <div class="d-flex flex-wrap">
+                  <div class="m-2" *ngIf="imgSrc!==''">
+                    <img [src]="imgSrc" width="100%" height="100%">
+                  </div>
+                  <div>
+                    <h5>Zutaten</h5>
+                    <ul class="list-group list-group-flush">
+                      <li *ngFor="let item of selectedRecipe.ingredients" class="list-group-item">
+                        {{ item }}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </ng-template>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

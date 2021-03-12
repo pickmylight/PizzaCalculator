@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="card">
+    <div class="card-header">
+      Pizza Wiki
+    </div>
+    <div class="card-body">
+      <div class="container">
+        <ngb-accordion #accordion [closeOthers]="true">
+          <ngb-panel id="dough">
+            <ng-template ngbPanelHeader>
+              <div class="d-flex align-items-center justify-content-between" (click)="accordion.toggle('dough')">
+                <h5 class="m-0">Pizzateig</h5>
+              </div>
+            </ng-template>
+            <ng-template ngbPanelContent>
+                Pizzateig Explanation
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel id="topping">
+            <ng-template ngbPanelHeader>
+              <div class="d-flex align-items-center justify-content-between" (click)="accordion.toggle('topping')">
+                <h5 class="m-0">Belegen</h5>
+              </div>
+            </ng-template>
+            <ng-template ngbPanelContent>
+                Pizzateig Belag Erklärung
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel id="cheese">
+            <ng-template ngbPanelHeader>
+              <div class="d-flex align-items-center justify-content-between" (click)="accordion.toggle('cheese')">
+                <h5 class="m-0">Käse</h5>
+              </div>
+            </ng-template>
+            <ng-template ngbPanelContent>
+                Verschiedene Käsesorten
+            </ng-template>
+          </ngb-panel>
+          <ngb-panel id="tomato">
+            <ng-template ngbPanelHeader>
+              <div class="d-flex align-items-center justify-content-between" (click)="accordion.toggle('tomato')">
+                <h5 class="m-0">Tomaten</h5>
+              </div>
+            </ng-template>
+            <ng-template ngbPanelContent>
+                Tomatenarten
+            </ng-template>
+          </ngb-panel>
+        </ngb-accordion>
+      </div>
+    </div>
+  </div>
+</div>

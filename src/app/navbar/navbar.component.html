@@ -1,13 +1,14 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-2">
     <a class="navbar-brand" href="#">PizzaCalculator</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/home/calculator" routerLinkActive="active">Home</a>
-        <a class="nav-item nav-link" routerLink="/home/recipes" routerLinkActive="active">Recipes</a>
-        <a class="nav-item nav-link" routerLink="/home/dough" routerLinkActive="active">Dough</a>
+        <a class="nav-item nav-link" routerLink="/home/calculator" routerLinkActive="active" data-toggle="collapse" data-target="#navbarNavAltMarkup">Calculator</a>
+        <a class="nav-item nav-link" routerLink="/home/recipes" routerLinkActive="active" data-toggle="collapse" data-target="#navbarNavAltMarkup">Rezepte</a>
+        <a class="nav-item nav-link" routerLink="/home/dough" routerLinkActive="active" data-toggle="collapse" data-target="#navbarNavAltMarkup">Teig</a>
+        <!-- <a class="nav-item nav-link" routerLink="/home/wiki" routerLinkActive="active"data-toggle="collapse" data-target="#navbarNavAltMarkup">Wiki</a> -->
       </div>
     </div>
   </nav>

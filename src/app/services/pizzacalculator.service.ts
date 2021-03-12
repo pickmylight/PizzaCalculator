@@ -10,15 +10,13 @@ export class PizzacalculatorService {
   private dataSource = new BehaviorSubject({} as Dough);
   public currentDough = this.dataSource.asObservable();
   constructor() { }
-
-
   public updateDataSet(dough: Dough): void {
     this.dataSource.next(dough);
   }
 
-  public updateMeasures(pizzaInfo: PizzaInfo, doughRecipe: DoughRecipe): void {
+  public updateMeasures(pizzaInfo: PizzaInfo): void {
     let dough: Dough;
-    if (doughRecipe === DoughRecipe.e_standard) {
+    if (pizzaInfo.pizzaDough === DoughRecipe.e_standard || pizzaInfo.pizzaDough === DoughRecipe.e_special) {
       const f = Number(((pizzaInfo.pizzaNumber * pizzaInfo.pizzaSize) / (1 + (pizzaInfo.pizzaWater / 100) + 0.03 + 0.002)).toFixed(1));
       dough = {
         flour: f,
@@ -27,7 +25,7 @@ export class PizzacalculatorService {
         yeast: Number((0.002 * f).toFixed(1)),
         levain: Number((0.002 * f).toFixed(1)),
       };
-    } else if (doughRecipe === DoughRecipe.e_sour) {
+    } else if (pizzaInfo.pizzaDough === DoughRecipe.e_sour) {
       const f = Number(((pizzaInfo.pizzaNumber * (pizzaInfo.pizzaSize - 15)) / (1 + (pizzaInfo.pizzaWater / 100) + 0.03)).toFixed(1));
       dough = {
         flour: f,
@@ -37,11 +35,6 @@ export class PizzacalculatorService {
         yeast: Number((0.002 * f).toFixed(1)),
       };
     }
-    console.log(dough);
     this.updateDataSet(dough);
-  }
-
-  public updateMeasuresSour(pizzaInfo: PizzaInfo): void {
-
   }
 }
