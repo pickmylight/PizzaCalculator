@@ -1,9 +1,9 @@
 {
   "configVersion": 1,
-  "timestamp": 1601224812709,
+  "timestamp": 1615556995721,
   "appData": {
-    "version": "1.1",
-    "changelog": "Teigzubereitung hinzugefügt"
+    "version": "1.2",
+    "changelog": "Umstellung auf Datenbank und Bildanzeige"
   },
   "index": "/index.html",
   "assetGroups": [
@@ -47,5 +47,6 @@
       "positive": false,
       "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
     }
-  ]
+  ],
+  "navigationRequestStrategy": "performance"
 }
