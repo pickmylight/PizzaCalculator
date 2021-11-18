@@ -1,0 +1,25 @@
+<div class="container p-1">
+    <div class="card">
+      <div *ngIf="displayRecipe===false; else recipe" class="card-header">
+        PinsaCalculator
+      </div>
+      <ng-template #recipe>
+        <div class="card-header" (click)="goBack()">
+          <i class="bi bi-arrow-left"></i>
+        </div>
+      </ng-template>
+      <div class="card-body">
+        <ngb-carousel [interval]="0" [showNavigationArrows]="false" [showNavigationIndicators]="false" #carousel>
+          <ng-template ngbSlide id="calculator">
+              This is the Calculator
+              <div class="d-flex flex-wrap justify-content-start align-items-center mt-2">
+                <button type="button" class="btn btn-dark mb-3" (click)="updatePizzaInfos()">Berechnen</button>
+              </div>
+          </ng-template>
+          <ng-template ngbSlide id="recipe">
+              This is the Recipe
+          </ng-template>
+        </ngb-carousel>
+        </div>
+    </div>
+</div>

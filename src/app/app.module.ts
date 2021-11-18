@@ -18,6 +18,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { WikiComponent } from './wiki/wiki.component';
+import { PinsaComponent } from './pinsa/pinsa.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { WikiComponent } from './wiki/wiki.component';
     PizzaComponent,
     RecipesComponent,
     TeiglingComponent,
-    WikiComponent
+    WikiComponent,
+    PinsaComponent
   ],
   imports: [
     BrowserModule,
