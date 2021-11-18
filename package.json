@@ -35,9 +35,9 @@
     "rxfire": "^6.0.0"
   },
   "devDependencies": {
-    "@angular-devkit/architect": "0.1202.13",
-    "@angular-devkit/build-angular": "^12.2.13",
-    "@angular/cli": "~12.2.13",
+    "@angular-devkit/architect": "0.1300.3",
+    "@angular-devkit/build-angular": "^13.0.3",
+    "@angular/cli": "~13.0.3",
     "@angular/compiler-cli": "~13.0.2",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
