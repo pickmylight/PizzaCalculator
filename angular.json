@@ -46,6 +46,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
+              "baseHref": "/PizzaCalculator/",
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
