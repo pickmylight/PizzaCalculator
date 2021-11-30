@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SwUpdate } from '@angular/service-worker';
 
-export interface AppData {
-    version: string;
-    changelog: string;
-}
-
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
