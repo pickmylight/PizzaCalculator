@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Preparation } from '../models/recipe';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-teigling',
@@ -6,31 +9,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./teigling.component.scss']
 })
 export class TeiglingComponent implements OnInit {
-  public steps = [
-    {
-      title: '1. Schritt',
-      text: 'Zutaten in einer Schüssel vermengen und dann ausserhalb der Schüssel mindestens 5 Minuten durchkneten.'
-    },
-    {
-      title: '2. Schritt',
-      text: 'Den Teig zugedeckt und gekühlt 24 Stunden gehen lassen. Nach 12 Stunden den Teig einmal auf "links" drehen.'
-    },
-    {
-      title: '3. Schritt',
-      text: 'Etwa eine Stunde vor der Zubereitung den Teig portitionieren und nochmals zugedeckt gehen lassen.'
-    },
-    {
-      title: 'Pizza machen',
-      text: 'Den Teig mit den Händen in die gewünschte Form bringen, um einen dünnen Boden und crossen Rand zu erhalten.'
-    },
-    {
-      title: 'Backen',
-      text: 'Bei 250-270°C im Ofen auf einem flachen Blech backen.'
-    }
-  ];
-  constructor() { }
+  public steps: Preparation[];
+  public headerTitle: string;
+  constructor(
+      private readonly fireBaseService: FirebaseService,
+      private readonly router: Router
+    ) {
+        if (this.router.url.startsWith('/pizza')) {
+            this.fireBaseService.loadRecipes('PizzaRecipe');
+            this.headerTitle = 'Pizza Teig';
+        } else {
+            this.fireBaseService.loadRecipes('PinsaRecipe');
+            this.headerTitle = 'Pinsa Teig';
+        }
+   }
 
   ngOnInit(): void {
-  }
+    this.fireBaseService.preparation.subscribe(prepSteps => {
+        this.steps = prepSteps;
+    });
+}
 
 }

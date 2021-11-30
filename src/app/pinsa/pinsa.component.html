@@ -1,25 +1,66 @@
 <div class="container p-1">
-    <div class="card">
-      <div *ngIf="displayRecipe===false; else recipe" class="card-header">
-        PinsaCalculator
+  <div class="card">
+    <div *ngIf="displayRecipe===false; else recipe" class="card-header">
+      PinsaCalculator
+    </div>
+    <ng-template #recipe>
+      <div class="card-header" (click)="goBack()">
+        <i class="bi bi-arrow-left"></i>
       </div>
-      <ng-template #recipe>
-        <div class="card-header" (click)="goBack()">
-          <i class="bi bi-arrow-left"></i>
-        </div>
-      </ng-template>
-      <div class="card-body">
-        <ngb-carousel [interval]="0" [showNavigationArrows]="false" [showNavigationIndicators]="false" #carousel>
-          <ng-template ngbSlide id="calculator">
-              This is the Calculator
+    </ng-template>
+    <div class="card-body">
+      <ngb-carousel [interval]="0" [showNavigationArrows]="false" [showNavigationIndicators]="false" #carousel>
+        <ng-template ngbSlide id="calculator">
+          <div class="container">
+            Die Basis für eine Pinsa Romana bildet der Teig, der zu einem rustikalen Fladen gebacken wird. Geformt wird sie länglich und schmal. Optisch und auch geschmacklich erinnert die Pinsa an ein Fladenbrot – außen knusprig und innen weich
+            <hr>
+            <form>
+              <div class="d-flex flex-wrap justify-content-start align-items-center mt-2">
+                <div class="w-100">
+                  <label for="pizzaNumber">Anzahl der Pizzen:</label>
+                  <input class="form-control" name="pizzaNumber" type="number" inputmode="numeric" min="0"
+                    [(ngModel)]="pizzaInfo.pizzaNumber">
+                </div>
+              </div>
+              <div class="d-flex flex-wrap justify-content-start align-items-center mt-2">
+                <div class="w-100">
+                  <label for="pizzaSize">Pinsateig Gewicht je Pinsa:</label>
+                  <div class="input-group mb-2">
+                    <input class="form-control" name="pizzaSize" type="number" inputmode="numeric"
+                      [(ngModel)]="pizzaInfo.pizzaSize" min="200" max="300">
+                    <div class="input-group-append">
+                      <div class="input-group-text">g</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="align-self-end ml-3">
+                  <small>200g = kleine Pinsa, 250g = große Pinsa</small>
+                </div>
+              </div>
               <div class="d-flex flex-wrap justify-content-start align-items-center mt-2">
                 <button type="button" class="btn btn-dark mb-3" (click)="updatePizzaInfos()">Berechnen</button>
               </div>
-          </ng-template>
-          <ng-template ngbSlide id="recipe">
-              This is the Recipe
-          </ng-template>
-        </ngb-carousel>
-        </div>
+            </form>
+          </div>
+        </ng-template>
+        <ng-template ngbSlide id="recipe">
+          <div class="container">
+            <h2>{{pizzaInfo.pizzaDough}}</h2>
+            <hr>
+            <div class="d-flex justify-content-between">
+              <div>Anzahl der Pinsas:</div>
+              <div>{{pizzaInfo.pizzaNumber}} x {{pizzaInfo.pizzaSize}} g</div>
+            </div>
+            <hr>
+            <h3>{{dough.flour}} g Mehl <small>Type 00/405</small></h3>
+            <h3>{{dough.rice_flour}} g Reismehl</h3>
+            <h3>{{dough.peas_flour}} g Kichererbsenmehl</h3>
+            <h3>{{dough.water}} ml Wasser</h3>
+            <h3>{{dough.salt}} g Salz</h3>
+            <h3>{{dough.yeast}} g Hefe</h3>
+          </div>
+        </ng-template>
+      </ngb-carousel>
     </div>
+  </div>
 </div>

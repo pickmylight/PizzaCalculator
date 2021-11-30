@@ -12,19 +12,20 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
       if (this.router.url.startsWith('/pizza')) {
-        this.displayType = "PizzaCalculator";
+        this.displayType = 'PizzaCalculator';
       } else {
-        this.displayType = "PinsaCalculator";
+        this.displayType = 'PinsaCalculator';
       }
   }
 
   changeCalculator(): void {
       switch (this.displayType) {
-          case "PizzaCalculator":
-            this.router.navigateByUrl('/pinsa');       
+          case 'PizzaCalculator':
+            this.router.navigateByUrl('/pinsa');
             break;
-          case "PinsaCalculator":
+          case 'PinsaCalculator':
             this.router.navigateByUrl('/pizza');
+            break;
           default:
               break;
       }

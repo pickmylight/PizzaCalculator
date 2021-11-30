@@ -4,3 +4,9 @@ export interface Recipe {
     conributor: string;
     picture: string;
 }
+
+export interface Preparation {
+    caption: string;
+    number: number;
+    text: string;
+}

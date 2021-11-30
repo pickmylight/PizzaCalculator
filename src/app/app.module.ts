@@ -10,6 +10,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PizzacalculatorService } from './services/pizzacalculator.service';
+import { PinsacalculatorService } from './services/pinsacalculator.service';
 import { FormsModule } from '@angular/forms';
 import { RecipesComponent } from './recipes/recipes.component';
 import { RouterModule } from '@angular/router';
@@ -43,7 +44,7 @@ import { PinsaComponent } from './pinsa/pinsa.component';
     AngularFirestoreModule.enablePersistence(),
     AngularFireStorageModule
   ],
-  providers: [PizzacalculatorService],
+  providers: [PizzacalculatorService, PinsacalculatorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,11 +1,11 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            Pizza Teig
+            {{ headerTitle }}
         </div>
         <div class="card-body">
             <div class="jumbotron-fluid" *ngFor="let step of steps">
-                <h3>{{ step.title }}</h3>
+                <h4>{{ step.number }}. {{ step.caption }}</h4>
                 <hr class="my-2">
                 <p>{{ step.text }}</p>
             </div>

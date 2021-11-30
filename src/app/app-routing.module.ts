@@ -35,6 +35,12 @@ const routes: Routes = [
                     path: 'calculator', component: PinsaComponent
                 },
                 {
+                    path: 'recipes', component: RecipesComponent
+                },
+                {
+                    path: 'dough', component: TeiglingComponent
+                },
+                {
                     path: '**', component: PinsaComponent
                 }
             ]
