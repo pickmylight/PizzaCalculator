@@ -1,11 +1,11 @@
 {
   "configVersion": 1,
-  "timestamp": 1615558709383,
+  "timestamp": 1638292932344,
   "appData": {
-    "version": "1.2",
-    "changelog": "Umstellung auf Datenbank und Bildanzeige"
+    "version": "2.0",
+    "changelog": "Hintergrundverbesserungen Inhalt.\nPinsa Romana Feature\nDurch klicken des Titels kann der Rechner gewechselt werden."
   },
-  "index": "/index.html",
+  "index": "/PizzaCalculator/index.html",
   "assetGroups": [
     {
       "name": "app",
