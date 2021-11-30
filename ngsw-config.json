@@ -2,8 +2,8 @@
   "$schema": "./node_modules/@angular/service-worker/config/schema.json",
   "index": "/index.html",
   "appData": {
-    "version": "1.3",
-    "changelog": "Implementierung Wiki und Design Refresh"
+    "version": "2.0",
+    "changelog": "Hintergrundverbesserungen Inhalt.\nPinsa Romana Feature\nDurch klicken des Titels kann der Rechner gewechselt werden."
   },
   "assetGroups": [
     {
