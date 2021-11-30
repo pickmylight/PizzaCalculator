@@ -44,8 +44,10 @@ export class ContentwrapperComponent implements OnInit {
         if (this.deviceDetect.isDesktop()) {
             this.mobile.next('Diese Seite ist für Mobil optimiert. Sie kann auch als App installiert werden');
         }
-        if (this.deviceDetect.isMobile() && !this.detectStandalone){
-            this.install.next('Diese Applikation lässt sich mittels "Teilen" als App hinzufügen.');
+        if (this.deviceDetect.isMobile()){
+            if (!this.detectStandalone()){
+                this.install.next('Diese Applikation lässt sich mittels "Teilen" als App hinzufügen.');
+            }
         }
     }
     private detectStandalone(): boolean {
