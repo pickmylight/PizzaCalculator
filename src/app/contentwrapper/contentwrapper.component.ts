@@ -42,14 +42,14 @@ export class ContentwrapperComponent implements OnInit {
             }
         });
         if (this.deviceDetect.isDesktop()) {
-            // this.mobile.next('Diese Seite ist für Mobil optimiert. Sie kann auch als App installiert werden');
+            this.mobile.next('Diese Seite ist für Mobil optimiert. Sie kann auch als App installiert werden');
         }
-        if (this.deviceDetect.isMobile()){
+        if (this.deviceDetect.isMobile() && !this.detectStandalone){
             this.install.next('Diese Applikation lässt sich mittels "Teilen" als App hinzufügen.');
         }
     }
     private detectStandalone(): boolean {
-        return ('standalone' in window.navigator);
+        return (window.matchMedia('(display-mode: standalone)').matches);
     }
     private detectMobile(): boolean {
         console.log(navigator.userAgent);
