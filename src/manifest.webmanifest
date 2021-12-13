@@ -1,7 +1,7 @@
 {
   "name": "pizza-app",
   "short_name": "pizza-app",
-  "theme_color": "#1976d2",
+  "theme_color": "#343a40",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
