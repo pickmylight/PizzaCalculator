@@ -24,7 +24,7 @@ export class PizzaComponent implements OnInit {
     this.pizzaInfo = {
       pizzaNumber: 1,
       pizzaSize: 250,
-      pizzaWater: 57,
+      pizzaWater: 67,
       pizzaDough: DoughRecipe.e_standard,
     };
     // this.pizzaService.updateMeasures(this.pizzaInfo);

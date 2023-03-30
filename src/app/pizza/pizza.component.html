@@ -40,14 +40,14 @@
                   <label for="pizzaWater">Wasseranteil des Teigs:</label>
                   <div class="input-group mb-2">
                     <input class="form-control" name="pizzaWater" type="number" inputmode="numeric"
-                      [(ngModel)]="pizzaInfo.pizzaWater" min="50" max="70">
+                      [(ngModel)]="pizzaInfo.pizzaWater" min="60" max="80">
                     <div class="input-group-append">
                       <div class="input-group-text">%</div>
                     </div>
                   </div>
                 </div>
                 <div class="align-self-end ml-3">
-                  <small>Wasseranteil von 50% bis 70%</small>
+                  <small>Wasseranteil von 60% bis 80%</small>
                 </div>
               </div>
               <div class="d-flex flex-wrap justify-content-start align-items-center mt-2">
@@ -78,16 +78,24 @@
               <div>{{pizzaInfo.pizzaNumber}} x {{pizzaInfo.pizzaSize}} g</div>
             </div>
             <hr>
-            <h3 *ngIf="!pizzaInfo.pizzaDough.includes('Spezial'); else spezial">{{dough.flour}} g Mehl</h3>
-            <ng-template #spezial>
-              <h3>{{(dough.flour * 1/3).toFixed(1)}} g Mehl <small>Type 1050</small></h3>
-              <h3>{{(dough.flour * 2/3).toFixed(1)}} g Mehl <small>Type 405</small></h3>
-            </ng-template>
-            <h3>{{dough.water}} ml Wasser</h3>
-            <h3>{{dough.salt}} g Salz</h3>
-            <h3 *ngIf="pizzaInfo.pizzaDough.includes('Sauer'); else yeast">{{dough.levain}} g Levain (60/40)</h3>
-            <ng-template #yeast>
+            <div *ngIf="pizzaInfo.pizzaDough.includes('Spezial'); else standard">
+              Vorteig:
+              <h3>{{((pizzaInfo.pizzaNumber * pizzaInfo.pizzaSize)/8).toFixed(1)}} g Mehl</h3>
+              <h3>{{((pizzaInfo.pizzaNumber * pizzaInfo.pizzaSize)/8).toFixed(1)}} ml Wasser</h3>
               <h3>{{dough.yeast}} g Hefe</h3>
+              Teig:
+              <h3>{{(dough.flour - ((pizzaInfo.pizzaNumber * pizzaInfo.pizzaSize)/8)).toFixed(1)}} g Mehl</h3>
+              <h3>{{(dough.water - ((pizzaInfo.pizzaNumber * pizzaInfo.pizzaSize)/8)).toFixed(1)}} ml Wasser</h3>
+              <h3>{{dough.salt}} g Salz</h3>
+            </div>
+            <ng-template #standard>
+              <h3>{{dough.flour}} g Mehl</h3>
+              <h3>{{dough.water}} ml Wasser</h3>
+              <h3>{{dough.salt}} g Salz</h3>
+              <h3 *ngIf="pizzaInfo.pizzaDough.includes('Sauer'); else yeast">{{dough.levain}} g Levain (60/40)</h3>
+              <ng-template #yeast>
+                <h3>{{dough.yeast}} g Hefe</h3>
+              </ng-template>
             </ng-template>
           </div>
         </ng-template>

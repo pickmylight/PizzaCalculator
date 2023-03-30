@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SwUpdate } from '@angular/service-worker';
+import { SwUpdate, VersionReadyEvent } from '@angular/service-worker';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
     selector: 'app-root',
@@ -12,16 +13,14 @@ export class AppComponent implements OnInit {
 
     ngOnInit(): void {
         if (this.swUpdate.isEnabled) {
-            this.swUpdate.available.subscribe((evt) => {
-                const changeLog = 'changelog';
-                const version = 'version';
-                const updateApp = window.confirm(`
-        Ein Update ist verfügbar (${evt.current.appData[version]} => ${evt.available.appData[version]}).
-        Änderungen: ${evt.current.appData[changeLog]}
-        Wollen Sie das Update jetzt installieren?
-      `);
-                if (updateApp) { window.location.reload(); }
-            });
+            const updatesAvailable = this.swUpdate.versionUpdates.pipe(
+                filter((evt): evt is VersionReadyEvent => evt.type === 'VERSION_READY'),
+                map(evt => ({
+                    type: 'UPDATE_AVAILABLE',
+                    current: evt.currentVersion,
+                    available: evt.latestVersion,
+                })));
         }
     }
 }
+
