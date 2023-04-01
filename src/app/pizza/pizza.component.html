@@ -54,7 +54,7 @@
                 <div class="w-100">
                   <label for="pizzaDough">Pizzateig</label>
                   <div class="input-group mb-2">
-                    <select class="custom-select" name="pizzaDough" [(ngModel)]="pizzaInfo.pizzaDough">
+                    <select class="form-select" name="pizzaDough" [(ngModel)]="pizzaInfo.pizzaDough">
                       <option *ngFor="let dough of doughType | keyvalue" (ngValue)="dough.key">
                         {{dough.value}}
                       </option>
